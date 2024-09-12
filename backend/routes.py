@@ -26,3 +26,8 @@ def create_user():
             "msg": "User already exists"
         }
         return jsonify(response_body), 404
+
+@api.route('/questions', methods=['GET'])
+def get_questions():
+    questions = Question.query.all()
+    return jsonify({'questions': [question.serialize() for question in questions]}), 200
