@@ -52,7 +52,7 @@ def get_questions():
     questions = Question.query.all()
     return jsonify({'questions': [question.serialize() for question in questions]}), 200
 
-# #Enpoint POST añadir un Nuevo Producto-----------------------------------------------------------------------------------
+# #Enpoint POST añadir un Nueva Pregunta-----------------------------------------------------------------------------------
 @api.route("/question", methods=["POST"]) # ¿es necesario poner el id del vendedor?
 @jwt_required()
 def create_new_question():
