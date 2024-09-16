@@ -92,3 +92,40 @@ def create_new_question():
         return jsonify({"msg": "Pregunta creada correctamente"}), 200
     else:
         return jsonify({"msg": "La pregunta ya existe"}), 400
+
+# #Enpoint PUT editar una pregunta-----------------------------------------------------------------------------------
+@api.route("/question/<int:question_id>", methods=["PUT"])
+@jwt_required()
+def update_question(question_id):
+    email = get_jwt_identity()
+    user = User.query.filter_by(email=email).first()
+    user_id=user.id
+
+    question_update = request.json.get("question")
+    category_update = request.json.get("category")
+    logo_update = request.json.get("logo")
+    answer1_update = request.json.get("answer1")
+    option1_update = request.json.get("option1")
+    answer2_update = request.json.get("answer2")
+    option2_update = request.json.get("option2")
+    answer3_update = request.json.get("answer3")
+    option3_update = request.json.get("option3")
+    reason_update = request.json.get("reason")
+
+    question_exist = Question.query.filter_by(id=question_id, user_id=user_id).first()
+    # poner error si el nombre ya existe
+    if question_exist is None:
+        return jsonify({"msg": "La pregunta no existe"}), 400
+    else:
+        question_exist.question=question_update,
+        question_exist.category=category_update,
+        question_exist.logo=logo_update,
+        question_exist.answer1=answer1_update,
+        question_exist.option1=option1_update,
+        question_exist.answer2=answer2_update,
+        question_exist.option2=option2_update,
+        question_exist.answer3=answer3_update,
+        question_exist.option3=option3_update,
+        question_exist.reason=reason_update,
+        db.session.commit()
+        return jsonify({"msg": "Pregunta actualizada correctamente"}), 200
