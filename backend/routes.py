@@ -27,6 +27,26 @@ def create_user():
         }
         return jsonify(response_body), 404
 
+# LOGIN-------------------------------------------------------------------------------------------------------------------
+# Create a route to authenticate your users and return JWTs. The
+# create_access_token() function is used to actually generate the JWT.
+@api.route("/login", methods=["POST"])
+def login():
+    email = request.json.get("email", None)
+    password = request.json.get("password", None)
+
+    user_exist = User.query.filter_by(email=email).first()
+    print(user_exist)
+
+    if user_exist is None:
+        return jsonify({"msg": "Email doesn't exist"}), 404
+
+    if email != user_exist.email or password != user_exist.password:
+        return jsonify({"msg": "Bad username or password"}), 401
+
+    access_token = create_access_token(identity=email)
+    return jsonify(access_token=access_token), 200       
+
 @api.route('/questions', methods=['GET'])
 def get_questions():
     questions = Question.query.all()
