@@ -129,3 +129,18 @@ def update_question(question_id):
         question_exist.reason=reason_update,
         db.session.commit()
         return jsonify({"msg": "Pregunta actualizada correctamente"}), 200
+
+# #Enpoint DELETE eliminar una Pregunta-----------------------------------------------------------------------------------
+@api.route('/question/<int:question_id>', methods=['DELETE'])
+@jwt_required()
+def delete_question(question_id):
+    email = get_jwt_identity()
+    user = User.query.filter_by(email=email).first()
+    user_id=user.id
+    check_question = Question.query.filter_by(id=question_id, user_id=user_id).first()
+    if check_question is None:
+        return jsonify({"msg" : "La pregunta no existe en este usuario"}), 404
+    else:
+        db.session.delete(check_question)
+        db.session.commit()
+        return jsonify({"msg" : "Pregunta eliminada en este usuario"}), 200
