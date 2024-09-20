@@ -1,7 +1,7 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import App from './App.jsx'
-import './index.css'
+// import './index.css'
 import { Footer } from "./Footer.jsx";
 import {BrowserRouter, Route, Routes } from "react-router-dom";
 import { Home } from "./Views/home.jsx";

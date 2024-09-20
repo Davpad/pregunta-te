@@ -68,5 +68,6 @@ button:focus-visible {
   }
   footer {
     background-color:lightblue;
+    max-width: 100%;
   }
 }
