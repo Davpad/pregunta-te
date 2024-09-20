@@ -2,7 +2,7 @@ import React, {Component} from "react";
 import { Link } from "react-router-dom";
 
 export const Footer = () => (
-	<footer className="footer mt-auto py-3 text-center border-top">
+	<footer className="footer mt-auto py-3 text-center bg blue-100">
 		<ul className="nav nav-pills justify-content-center">
 			<li className="nav-item">
 				<Link className="nav-link" to="/"><h6><strong>Home</strong></h6></Link>

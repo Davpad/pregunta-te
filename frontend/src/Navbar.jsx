@@ -21,8 +21,8 @@ export const Navbar = () => (
                     </li>
                 </ul>
                 < div className="d-flex">
-                    <Link className="btn btn-primary" to="/signup" >Signup</Link>
-                    <Link className="btn btn-primary" to="/login" >Login</Link>
+                    <Link className="btn btn-primary m-1" to="/signup" >Signup</Link>
+                    <Link className="btn btn-primary m-1" to="/login" >Login</Link>
                 </div>
             </div>
         </div>
