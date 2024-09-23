@@ -21,6 +21,7 @@ createRoot(document.getElementById('root')).render(
           <Route element={<Questions />} path="/preguntas" />
           <Route element={<Signup />} path="/signup" />
           <Route element={<Login />} path="/login" />
+          <Route element={<Profile />} path="/profile" />
 
         </Routes>
       <Footer />
