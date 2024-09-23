@@ -39,7 +39,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				setStore({ demo: demo });
 			},
 
-			createUser: async (email, password, username, navigate) => {
+			signup: async (email, password, username, navigate) => {
 				try {
 					let response = await fetch(process.env.BACKEND_URL + "/signup", {
 						method: 'POST',
