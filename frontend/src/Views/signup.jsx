@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 
 export const Signup = () =>{
 
-    const { store, actions } = useContext(Context);
+    const { actions } = useContext(Context);
     
     const [username, setUsername] = useState("");
 	const [email, setEmail] = useState("")
@@ -18,7 +18,7 @@ export const Signup = () =>{
     }
 
     return(
-    <form className="row g-3" onsubmit={handlesubmit}>
+    <form className="row g-3" onsubmit={handleSubmit}>
         <div className="col-md-12">
             <label for="inputEmail4" className="form-label">Email</label>
             <input type="email" className="form-control" id="inputEmail" onChange={(event) => { setEmail(event.target.value) }}/>
