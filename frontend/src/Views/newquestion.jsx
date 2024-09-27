@@ -15,7 +15,7 @@ export const NewQuestion = () => {
             </div>
             <div class="col-10">
                 <label for="answer1" class="form-label">Answer1</label>
-                <input type="text" class="form-control" id="answer1" placeholder="answer1" />
+                <input type="text" class="form-control" id="answer1" placeholder="answer1"/>
             </div>
             <div class="col-md-2">
                 <div class="form-check">
@@ -34,6 +34,10 @@ export const NewQuestion = () => {
             <div class="col-10">
                 <label for="answer3" class="form-label">Answer3</label>
                 <input type="text" class="form-control" id="answer3" placeholder="answer3" />
+            </div>
+            <div class="col-12">
+                <label for="reason" class="form-label">Reason</label>
+                <input type="text" class="form-control" id="reason" placeholder="reason" />
             </div>
             <div class="col-12">
                 <button type="submit" class="btn btn-primary">Crear pregunta</button>
