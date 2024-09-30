@@ -14,7 +14,8 @@ export const NewQuestion = () => {
             </div>
             <div class="col-md-2">
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="option1" />
+                    <input class="form-check-input" type="checkbox" id="option1" value="true"/>
+                    <input class="form-check-input" type="hidden" id="option1" value="false"/>
                 </div>
             </div>
             <div class="col-10">
@@ -23,7 +24,7 @@ export const NewQuestion = () => {
             </div>
             <div class="col-md-2">
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="option2" />
+                    <input class="form-check-input" type="checkbox" id="option2" checked={option2==="True"}/>
                 </div>
             </div>
             <div class="col-10">
@@ -32,7 +33,7 @@ export const NewQuestion = () => {
             </div>
             <div class="col-md-2">
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="option3" />
+                    <input class="form-check-input" type="checkbox" id="option3" checked={option3==="True"}/>
                 </div>
             </div>
             <div class="col-10">
