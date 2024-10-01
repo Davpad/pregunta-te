@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 
 export const Signup = () =>{
 
-    const { actions } = useContext(Context);
+    const {store, actions } = useContext(Context);
     
     const [username, setUsername] = useState("");
 	const [email, setEmail] = useState("")
