@@ -1,4 +1,5 @@
 import React from "react";
+import ReactDOM from 'react-dom/client'
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 // import ScrollToTop from "./component/scrollToTop";
 import {Questions} from "./Views/questions.jsx"
@@ -7,11 +8,12 @@ import {Login} from "./Views/login.jsx"
 import {Profile} from "./Views/profile.jsx"
 import {Footer} from "./Footer.jsx"
 import {Navbar} from "./Navbar.jsx"
-import injectContext from "./store/appContext";
-const Layout = () => {
-  const basename = import.meta.env.VITE_BASENAME || "";
-  return (
-    <div>
+import {AppProvider} from "./store/AppContext.jsx";
+import { Home } from "./Views/home.jsx";
+
+ReactDOM.createRoot(document.getElementById('root')).render(
+    <React.StrictMode>
+      <BrowserRouter>
       <AppProvider>
         <Navbar/>
           <Routes>
@@ -21,9 +23,10 @@ const Layout = () => {
             <Route element={<Login />} path="/login" />
             <Route element={<Profile />} path="/profile" />
           </Routes>
-        <Footer />
-        </AppProvider>
-    </div>
-  );
-};
-export default injectContext(Layout);
+        <Footer/>
+      </AppProvider>
+      </BrowserRouter>
+    </React.StrictMode>,
+
+)
+// export default injectContext(Layout);

@@ -1,21 +1,21 @@
 import React, {useContext, useState} from "react";
-import { Context } from "../store/appContext";
-import { Link, useNavigate } from "react-router-dom";
+// import { Context } from "../store/AppContext";
+// import { Link, useNavigate } from "react-router-dom";
 
 export const Signup = () =>{
 
-    const {store, actions } = useContext(Context);
+    // const {store, actions } = useContext(Context);
     
-    const [username, setUsername] = useState("");
-	const [email, setEmail] = useState("")
-	const [password, setPassword] = useState("")
+    // const [username, setUsername] = useState("");
+	// const [email, setEmail] = useState("")
+	// const [password, setPassword] = useState("")
 
-	const navigate = useNavigate()
+	// const navigate = useNavigate()
 
-    function handleSubmit() {
-        actions.signup(email, password, username);
-        navigate("/profile");
-    }
+    // function handleSubmit() {
+    //     actions.signup(email, password, username);
+    //     navigate("/profile");
+    // }
 
     return(
     <form className="row g-3" onsubmit={handleSubmit}>
