@@ -1,24 +1,17 @@
-import React, {useContext, useState} from "react";
-// import { Context } from "../store/AppContext";
+import React, {useEffect} from "react";
+import useAppContext from "../store/AppContext";
 // import { Link, useNavigate } from "react-router-dom";
 
 export const Signup = () =>{
 
-    // const {store, actions } = useContext(Context);
-    
-    // const [username, setUsername] = useState("");
-	// const [email, setEmail] = useState("")
-	// const [password, setPassword] = useState("")
+    const {store, actions} = useAppContext();
 
-	// const navigate = useNavigate()
-
-    // function handleSubmit() {
-    //     actions.signup(email, password, username);
-    //     navigate("/profile");
-    // }
+    useEffect(() => {
+        console.log(store.ejemplo)
+    }, [store.ejemplo])
 
     return(
-    <form className="row g-3" onsubmit={handleSubmit}>
+    <form className="row g-3">
         <div className="col-md-12">
             <label for="inputEmail4" className="form-label">Email</label>
             <input type="email" className="form-control" id="inputEmail" onChange={(event) => { setEmail(event.target.value) }}/>
@@ -41,6 +34,10 @@ export const Signup = () =>{
         </div> */}
         <div className="col-12">
             <button type="submit" className="btn btn-primary">Sign up</button>
+        </div>
+        <div>
+            <p>{store.ejemplo}</p>
+            <button onClick={() => actions.setEjemplo("chau!")}>Click!</button> 
         </div>
     </form>    
     );
