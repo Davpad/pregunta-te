@@ -1,17 +1,25 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import useAppContext from "../store/AppContext";
-// import { Link, useNavigate } from "react-router-dom";
+
+import { Link, useNavigate } from "react-router-dom";
 
 export const Signup = () =>{
 
     const {store, actions} = useAppContext();
 
-    useEffect(() => {
-        console.log(store.ejemplo)
-    }, [store.ejemplo])
+    const [email,setEmail] = useState();
+    const [password,setPassword] = useState();
+    const [username,setUsername] = useState();
+	const navigate = useNavigate()
+
+    async function handleSubmit(e) {
+        e.preventDefault();
+        await actions.signup(email, password, username, navigate)
+    }
+
 
     return(
-    <form className="row g-3">
+    <form className="row g-3" onSubmit={handleSubmit}>
         <div className="col-md-12">
             <label for="inputEmail4" className="form-label">Email</label>
             <input type="email" className="form-control" id="inputEmail" onChange={(event) => { setEmail(event.target.value) }}/>

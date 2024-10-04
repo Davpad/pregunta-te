@@ -4,6 +4,8 @@ import useAppContext from "../store/AppContext";
 export const Login = () =>{
     const {store, actions} = useAppContext();
 
+    
+
     useEffect(() => {
         console.log(store.ejemplo)
     }, [store.ejemplo])
