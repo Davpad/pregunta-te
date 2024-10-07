@@ -9,8 +9,7 @@ export const AppProvider = ({ children }) => {
 
 	const signup = async (email, password, username, navigate) => {
 		try {
-			console.log("Probando");
-
+			
 			let response = await fetch(process.env.BACKEND_URL + "/signup", {
 				method: 'POST',
 				headers: {
@@ -43,8 +42,42 @@ export const AppProvider = ({ children }) => {
 
 	}
 
+	const login = async (email, password, navigate) => {
+		try {
+			
+			let response = await fetch(process.env.BACKEND_URL + "/login", {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json'
+				},
+				body: JSON.stringify({
+					email: email,
+					password: password
+				})
+			})
+			if (!response.ok) {
+				const errorData = await response.json()
+				console.log(errorData);
+				throw new Error(errorData.msg)
+			}
+			let data = await response.json()
+			if (data) {
+				console.log(data);
+				navigate("/profile")
+				return data.msg;
+			} else {
+				console.log(data);
+				return false
+			}
+		} catch (error) {
+			console.log(error.message);
+			return error.message;
+		}
+
+	}
+
 	const store = { ejemplo }
-	const actions = { setEjemplo, signup };
+	const actions = { setEjemplo, signup, login };
 
 	
 
