@@ -10,7 +10,7 @@ export const AppProvider = ({ children }) => {
 	const signup = async (email, password, username, navigate) => {
 		try {
 			
-			let response = await fetch(process.env.BACKEND_URL + "/signup", {
+			let response = await fetch("http://127.0.0.1:3001/api"+ "/signup", {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json'
@@ -21,23 +21,21 @@ export const AppProvider = ({ children }) => {
 					username: username
 				})
 			})
-			if (!response.ok) {
-				const errorData = await response.json()
-				console.log(errorData);
-				throw new Error(errorData.msg)
-			}
 			let data = await response.json()
-			if (data) {
+			console.log(email);
+			if (response.status === 200){
+				console.log(data.access_token);
+				localStorage.setItem("token", data.access_token);
+
 				console.log(data);
-				navigate("/profile")
-				return data.msg;
-			} else {
-				console.log(data);
-				return false
+				return true;
+			}else{
+				return false;
 			}
-		} catch (error) {
-			console.log(error.message);
-			return error.message;
+
+		}catch(error){
+			console.log(error);
+			return false;	
 		}
 
 	}
