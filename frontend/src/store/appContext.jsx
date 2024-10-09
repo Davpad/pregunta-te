@@ -24,10 +24,10 @@ export const AppProvider = ({ children }) => {
 			let data = await response.json()
 			console.log(email);
 			if (response.status === 200){
-				console.log(data.access_token);
+				console.log(access_token);
 				localStorage.setItem("token", data.access_token);
 
-				console.log(data);
+				navigate ("/profile")
 				return true;
 			}else{
 				return false;
@@ -43,7 +43,7 @@ export const AppProvider = ({ children }) => {
 	const login = async (email, password, navigate) => {
 		try {
 			
-			let response = await fetch(process.env.BACKEND_URL + "/login", {
+			let response = await fetch("http://127.0.0.1:3001/api" + "/login", {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json'
@@ -53,29 +53,33 @@ export const AppProvider = ({ children }) => {
 					password: password
 				})
 			})
-			if (!response.ok) {
-				const errorData = await response.json()
-				console.log(errorData);
-				throw new Error(errorData.msg)
-			}
 			let data = await response.json()
-			if (data) {
-				console.log(data);
-				navigate("/profile")
-				return data.msg;
-			} else {
-				console.log(data);
-				return false
+			console.log(email);
+			if (response.status === 200){
+				console.log(data.access_token);
+				localStorage.setItem("token", data.access_token);
+				console.log(localStorage.token);
+
+				navigate ("/profile")
+				return true;
+			}else{
+				return false;
 			}
-		} catch (error) {
-			console.log(error.message);
-			return error.message;
+
+		}catch(error){
+			console.log(error);
+			return false;	
 		}
 
 	}
 
+	const logout = () => {
+		localStorage.removeItem("token")
+
+	}
+
 	const store = { ejemplo }
-	const actions = { setEjemplo, signup, login };
+	const actions = { setEjemplo, signup, login, logout};
 
 	
 
