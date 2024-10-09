@@ -1,8 +1,9 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export const Profile = () =>{
     
     return(
-        <div>Soy tu lista de preguntas</div>
+        <Link className="btn btn-primary m-1" to="/newquestion">Add new question</Link>
     );
 };
