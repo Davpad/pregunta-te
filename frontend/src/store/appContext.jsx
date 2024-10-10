@@ -6,6 +6,8 @@ const AppContext = createContext();
 export const AppProvider = ({ children }) => {
 
 	const [ejemplo, setEjemplo] = useState("hola")
+	const [questions, setQuestions] = useState("hola")
+
 
 	const signup = async (email, password, username, navigate) => {
 		try {
@@ -78,8 +80,50 @@ export const AppProvider = ({ children }) => {
 
 	}
 
-	const store = { ejemplo }
-	const actions = { setEjemplo, signup, login, logout};
+	const addQuestion = async (question, category, option1, answer1, option2, answer2, option3, answer3, reason, navigate, token) => {
+		try {
+			
+			let response = await fetch("http://127.0.0.1:3001/api" + "/question", {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+					'Authorization': `Bearer ${token}`
+				},
+				body: JSON.stringify({
+					question: question,
+					category: category,
+					option1: option1,
+					answer1: answer1,
+					option2: option2,
+					answer2: answer2,
+					option3: option3,
+					answer3: answer3,
+					reason: reason
+				})
+			})
+			let data = await response.json()
+			console.log(data);
+			if (response.status === 200){
+				console.log(data.msg);
+				setQuestions({questions: data.results})
+				console.log(store.questions);
+
+				navigate ("/profile")
+				return true;
+			}
+			// else{
+			// 	return false;
+			// }
+
+		}catch(error){
+			console.log(error);
+			return false;	
+		}
+
+	}
+
+	const store = { questions }
+	const actions = { setEjemplo, signup, login, logout, addQuestion, setQuestions};
 
 	
 

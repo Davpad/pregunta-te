@@ -8,19 +8,21 @@ export const NewQuestion = () => {
 
     const [question,setQuestion] = useState();
     const [category,setCategory] = useState();
-    const [option1,setOption1] = useState("false");
+    const [option1,setOption1] = useState(false);
     const [answer1,setAnswer1] = useState();
-    const [option2,setOption2] = useState("false");
+    const [option2,setOption2] = useState(false);
     const [answer2,setAnswer2] = useState();
-    const [option3,setOption3] = useState("false");
+    const [option3,setOption3] = useState(false);
     const [answer3,setAnswer3] = useState();
     const [reason,setReason] = useState();
     const navigate = useNavigate()
 
 
     async function handleSubmit(e) {
+        const token = localStorage.getItem("token");
+
         e.preventDefault();
-        await actions.addQuestion(question, category, option1, answer1, option2, answer2, option3, answer3, reason, navigate)
+        await actions.addQuestion(question, category, option1, answer1, option2, answer2, option3, answer3, reason, navigate, token)
     }
 
     return (
@@ -35,7 +37,7 @@ export const NewQuestion = () => {
             </div>
             <div className="col-2">
                 <div className="form-check mx-auto my-auto">
-                    <input className="form-check-input" type="checkbox" id="option1" value="true" checked={option1 === "true"} onChange={(event) => { setOption1(event.target.value) }}/>
+                    <input className="form-check-input" type="checkbox" id="option1" value='true' checked={option1 === true} onChange={(event) => { setOption1(event.target.value) }}/>
                 </div>
             </div>
             <div className="col-10">
@@ -44,7 +46,7 @@ export const NewQuestion = () => {
             </div>
             <div className="col-2">
                 <div className="form-check">
-                    <input className="form-check-input" type="checkbox" id="option2" value="true" checked={option2 === "true"} onChange={(event) => { setOption2(event.target.value) }}/>
+                    <input className="form-check-input" type="checkbox" id="option2" value='true' checked={option2 === true} onChange={(event) => { setOption2(event.target.value) }}/>
                 </div>
             </div>
             <div className="col-10">
@@ -53,7 +55,7 @@ export const NewQuestion = () => {
             </div>
             <div className="col-2">
                 <div className="form-check">
-                    <input className="form-check-input" type="checkbox" id="option3" value="true" checked={option3 === "true"} onChange={(event) => { setOption3(event.target.value) }}/>
+                    <input className="form-check-input" type="checkbox" id="option3" value='true' checked={option3 === true} onChange={(event) => { setOption3(event.target.value) }}/>
                 </div>
             </div>
             <div className="col-10">
