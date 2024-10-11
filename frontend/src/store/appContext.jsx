@@ -80,7 +80,7 @@ export const AppProvider = ({ children }) => {
 
 	}
 
-	const addQuestion = async (question, category, option1, answer1, option2, answer2, option3, answer3, reason, navigate, token) => {
+	const addQuestion = async (question, category, option1, answer1, option2, answer2, option3, answer3, reason, logo, navigate, token) => {
 		try {
 			
 			let response = await fetch("http://127.0.0.1:3001/api" + "/question", {
@@ -98,7 +98,8 @@ export const AppProvider = ({ children }) => {
 					answer2: answer2,
 					option3: option3,
 					answer3: answer3,
-					reason: reason
+					reason: reason,
+					logo: logo
 				})
 			})
 			let data = await response.json()

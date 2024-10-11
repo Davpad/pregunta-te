@@ -15,6 +15,7 @@ export const NewQuestion = () => {
     const [option3,setOption3] = useState("false");
     const [answer3,setAnswer3] = useState();
     const [reason,setReason] = useState();
+    const [logo,setLogo] = useState();
     const navigate = useNavigate()
 
 
@@ -28,7 +29,7 @@ export const NewQuestion = () => {
         console.log(option3);
 
         e.preventDefault();
-        await actions.addQuestion(question, category, option1, answer1, option2, answer2, option3, answer3, reason, navigate, token)
+        await actions.addQuestion(question, category, option1, answer1, option2, answer2, option3, answer3, reason, logo, navigate, token)
     }
 
     return (
@@ -37,9 +38,13 @@ export const NewQuestion = () => {
                 <label for="question" className="form-label">Question</label>
                 <input type="text" className="form-control" id="question" placeholder="Question" onChange={(event) => { setQuestion(event.target.value) }}/>
             </div>
-            <div className="col-md-12">
+            <div className="col-md-8">
                 <label for="category" className="form-label">Category</label>
                 <input type="text" className="form-control" id="category" placeholder="Category" onChange={(event) => { setCategory(event.target.value) }}/>
+            </div>
+            <div className="col-md-4">
+                <label for="logo" className="form-label">Logo</label>
+                <input type="text" className="form-control" id="logo" placeholder="Logo" onChange={(event) => { setLogo(event.target.value) }}/>
             </div>
             <div className="col-2">
                 <div className="form-check mx-auto my-auto">
