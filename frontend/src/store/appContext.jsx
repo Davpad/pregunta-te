@@ -189,8 +189,36 @@ export const AppProvider = ({ children }) => {
 
 	}
 
+	const getUserQuestions= async () => {
+		let token = localStorage.getItem("token")
+		if (!token) {
+			console.error("Falta el token de autenticación");
+			return false;
+		}
+		try {
+			let response = await fetch("http://127.0.0.1:3001/api" + "/questions-user", {
+				method: "GET",
+				headers:{
+					"Content-Type":"application/json",
+					'Authorization': `Bearer ${token}`
+				},
+			})
+			let data = await response.json()
+			if (response.status === 200){
+				setQuestions({questions:data.questions});
+				return true;
+			} 
+			// else {
+			// 	console.log(data);
+			// 	return console.log("No funciona");
+			// }
+		} catch (error) {
+			return false;
+		}
+	}
+
 	const store = { questions, question}
-	const actions = { setEjemplo, signup, login, logout, addQuestion, setQuestions, getQuestions, setQuestion, editQuestion};
+	const actions = { setEjemplo, signup, login, logout, addQuestion, setQuestions, getQuestions, setQuestion, editQuestion, getUserQuestions};
 
 	
 
