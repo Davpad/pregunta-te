@@ -146,8 +146,51 @@ export const AppProvider = ({ children }) => {
 		}
 	}
 
-	const store = { questions }
-	const actions = { setEjemplo, signup, login, logout, addQuestion, setQuestions, getQuestions};
+	const editQuestion = async (question, category, option1, answer1, option2, answer2, option3, answer3, reason, logo, navigate, token, id) => {
+		try {
+			
+			let response = await fetch("http://127.0.0.1:3001/api" + "/question/" + id, {
+				method: 'PUT',
+				headers: {
+					'Content-Type': 'application/json',
+					'Authorization': `Bearer ${token}`
+				},
+				body: JSON.stringify({
+					question: question,
+					category: category,
+					option1: option1,
+					answer1: answer1,
+					option2: option2,
+					answer2: answer2,
+					option3: option3,
+					answer3: answer3,
+					reason: reason,
+					logo: logo
+				})
+			})
+			let data = await response.json()
+			console.log(data);
+			if (response.status === 200){
+				console.log(data.msg);
+				setQuestions({questions: data.results})
+				console.log(store.questions);
+
+				navigate ("/profile")
+				return true;
+			}
+			// else{
+			// 	return false;
+			// }
+
+		}catch(error){
+			console.log("Error al edita el producto",error);
+			return false;	
+		}
+
+	}
+
+	const store = { questions, question}
+	const actions = { setEjemplo, signup, login, logout, addQuestion, setQuestions, getQuestions, setQuestion, editQuestion};
 
 	
 

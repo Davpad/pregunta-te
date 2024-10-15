@@ -14,6 +14,7 @@ export const Questions = () =>{
         <div className="row col-10 d-flex mx-auto">
             <div className="row" style={{backgroundColor:"#76d1ebaa"}}>
                 <img src="https://static.vecteezy.com/system/resources/previews/027/127/463/non_2x/javascript-logo-javascript-icon-transparent-free-png.png" alt="" className="col-1"/>
+                <div className="my-2 col-lg-11 mx-0.5" style={{backgroundColor:"white"}}>Esta es la categoria</div>
                 <div className="my-2 col-lg-11 mx-0.5" style={{backgroundColor:"white"}}>Esta es la pregunta</div>
 
             </div>
