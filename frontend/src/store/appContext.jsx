@@ -6,7 +6,9 @@ const AppContext = createContext();
 export const AppProvider = ({ children }) => {
 
 	const [ejemplo, setEjemplo] = useState("hola")
-	const [questions, setQuestions] = useState("hola")
+	const [questions, setQuestions] = useState()
+	const [question, setQuestion] = useState()
+
 
 
 	const signup = async (email, password, username, navigate) => {

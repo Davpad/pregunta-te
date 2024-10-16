@@ -1,4 +1,6 @@
 import React from "react";
+import useAppContext from "../store/AppContext";
+
 
 export const InfoQuestion = () => {
 
