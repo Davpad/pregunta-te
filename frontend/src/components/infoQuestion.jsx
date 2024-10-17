@@ -9,6 +9,7 @@ export const InfoQuestion = ({id, logo, category, question}) => {
     const token = localStorage.getItem("token");
 
 
+
     return (
         <div className="card mb-3 w_100" key={id} >
             <div className="row g-0">

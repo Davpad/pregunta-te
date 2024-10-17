@@ -147,7 +147,7 @@ def delete_question(question_id):
 @jwt_required()
 def get_questions_user():
     email = get_jwt_identity()
-    user = user.query.filter_by(email=email).first()
+    user = User.query.filter_by(email=email).first()
     user_id=user.id
     # Seleciono las preguntas porque un vendedor puede tener varias
     user_questions = Question.query.filter_by(user_id=user_id)
@@ -160,4 +160,4 @@ def get_questions_user():
     preguntas_serializadas = [question.serialize() for question in user_questions]
 
     # Devolver la lista de productos serializados
-    return jsonify({'questions': preguntas_serializadas}), 200
+    return jsonify({'results': preguntas_serializadas}), 200

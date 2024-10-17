@@ -6,8 +6,9 @@ const AppContext = createContext();
 export const AppProvider = ({ children }) => {
 
 	const [ejemplo, setEjemplo] = useState("hola")
-	const [questions, setQuestions] = useState()
+	const [questions, setQuestions] = useState([])
 	const [question, setQuestion] = useState()
+	const [userQuestions, setUserQuestions] = useState([])
 
 
 
@@ -109,9 +110,9 @@ export const AppProvider = ({ children }) => {
 			if (response.status === 200){
 				console.log(data.msg);
 				setQuestions({questions: data.results})
-				console.log(store.questions);
+				console.log(questions);
 
-				navigate ("/profile")
+				// navigate ("/profile")
 				return true;
 			}
 			// else{
@@ -174,8 +175,8 @@ export const AppProvider = ({ children }) => {
 			console.log(data);
 			if (response.status === 200){
 				console.log(data.msg);
-				setQuestions({questions: data.results})
-				console.log(store.questions);
+				setQuestions({ questions: data.results });
+				console.log(questions);
 
 				navigate ("/profile")
 				return true;
@@ -191,8 +192,7 @@ export const AppProvider = ({ children }) => {
 
 	}
 
-	const getUserQuestions= async () => {
-		let token = localStorage.getItem("token")
+	const getUserQuestions= async (token) => {
 		if (!token) {
 			console.error("Falta el token de autenticación");
 			return false;
@@ -207,7 +207,11 @@ export const AppProvider = ({ children }) => {
 			})
 			let data = await response.json()
 			if (response.status === 200){
-				setQuestions({questions:data.questions});
+				// console.log(data.results);
+				
+				setUserQuestions({userQuestions: data.results})
+				console.log(userQuestions);
+				
 				return true;
 			} 
 			// else {
@@ -219,8 +223,8 @@ export const AppProvider = ({ children }) => {
 		}
 	}
 
-	const store = { questions, question}
-	const actions = { setEjemplo, signup, login, logout, addQuestion, setQuestions, getQuestions, setQuestion, editQuestion, getUserQuestions};
+	const store = { questions, question, userQuestions}
+	const actions = { setEjemplo, signup, login, logout, addQuestion, setQuestions, getQuestions, setQuestion, editQuestion, getUserQuestions, setUserQuestions};
 
 	
 
