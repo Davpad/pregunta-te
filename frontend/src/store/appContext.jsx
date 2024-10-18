@@ -193,6 +193,7 @@ export const AppProvider = ({ children }) => {
 	}
 
 	const getUserQuestions= async (token) => {
+		
 		if (!token) {
 			console.error("Falta el token de autenticación");
 			return false;
@@ -207,9 +208,9 @@ export const AppProvider = ({ children }) => {
 			})
 			let data = await response.json()
 			if (response.status === 200){
-				// console.log(data.results);
-				
-				setUserQuestions({userQuestions: data.results})
+				console.log(data.results);
+				let arr = data.results;
+				setUserQuestions(arr)
 				console.log(userQuestions);
 				
 				return true;
