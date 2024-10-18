@@ -11,18 +11,18 @@ export const InfoQuestion = ({id, logo, category, question}) => {
 
 
     return (
-        <div className="card mb-3 w_100" key={id} >
+        <div className="card mb-3 w-75" key={id} >
             <div className="row g-0">
-                <div className="col-md-4">
+                <div className="col-md-2">
                     <img src={logo} className="img-fluid rounded-start" alt="..."/>
                 </div>
-                <div className="col-md-8">
+                <div className="col-md-10">
                     <div className="card-header">{category}</div>
                     <div className="card-body">
                         <p className="card-text">{question}</p>
-                        <div className="d-flex">
-                            <button className="btn btn-danger">Delete</button>
-                            <button className="btn btn-succes">Edit</button>
+                        <div className="d-flex justify-content-end">
+                            <button className="btn btn-danger mx-2">Delete</button>
+                            <button className="btn btn-success mx-2">Edit</button>
                         </div>
                     </div>
                 </div>
