@@ -3,7 +3,7 @@ import useAppContext from "../store/AppContext";
 import { useNavigate } from "react-router-dom";
 
 
-export const InfoQuestion = ({id, logo, category, question}) => {
+export const InfoQuestion = ({id, logo, category, question,userQuestion}) => {
     const {store, actions} = useAppContext();
     const navigate = useNavigate()
     const token = localStorage.getItem("token");
@@ -20,7 +20,12 @@ export const InfoQuestion = ({id, logo, category, question}) => {
                     <div className="card-header">{category}</div>
                     <div className="card-body">
                         <p className="card-text">{question}</p>
-                        <div className="d-flex justify-content-end">
+                        <div className="d-flex justify-content-end" onClick={()=>{
+                            actions.setOneQuestion(userQuestion)
+                            navigate("/editquestion")
+                            console.log(store.oneQuestion);
+                            
+                            }}>
                             <button className="btn btn-danger mx-2">Delete</button>
                             <button className="btn btn-success mx-2">Edit</button>
                         </div>

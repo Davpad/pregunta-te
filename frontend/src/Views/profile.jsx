@@ -32,6 +32,7 @@ export const Profile = () =>{
                                 logo={userQuestion?.logo}
                                 category={userQuestion?.category}
                                 question={userQuestion?.question}
+                                userQuestion={userQuestion}
                             />
                         </div>
 

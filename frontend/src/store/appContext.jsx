@@ -7,7 +7,7 @@ export const AppProvider = ({ children }) => {
 
 	const [ejemplo, setEjemplo] = useState("hola")
 	const [questions, setQuestions] = useState([])
-	const [question, setQuestion] = useState()
+	const [oneQuestion, setOneQuestion] = useState()
 	const [userQuestions, setUserQuestions] = useState([])
 
 
@@ -137,7 +137,7 @@ export const AppProvider = ({ children }) => {
 			let data = await response.json()
 			if (response.status === 200) {
 
-				setQuestions({ questions: data.questions })
+				setQuestions(data.questions)
 				console.log(questions);
 				
 			} else {
@@ -222,10 +222,11 @@ export const AppProvider = ({ children }) => {
 		} catch (error) {
 			return false;
 		}
+
 	}
 
-	const store = { questions, question, userQuestions}
-	const actions = { setEjemplo, signup, login, logout, addQuestion, setQuestions, getQuestions, setQuestion, editQuestion, getUserQuestions, setUserQuestions};
+	const store = { questions, oneQuestion, userQuestions}
+	const actions = { setEjemplo, signup, login, logout, addQuestion, setQuestions, getQuestions, setOneQuestion, editQuestion, getUserQuestions, setUserQuestions};
 
 	
 

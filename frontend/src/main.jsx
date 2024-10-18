@@ -11,6 +11,7 @@ import {Navbar} from "./Navbar.jsx"
 import {AppProvider} from "./store/AppContext.jsx";
 import { Home } from "./Views/home.jsx";
 import { NewQuestion } from "./Views/newquestion.jsx";
+import {EditQuestion} from "./Views/editquestion.jsx";
 
 ReactDOM.createRoot(document.getElementById('root')).render(
     <React.StrictMode>
@@ -24,6 +25,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
             <Route element={<Login />} path="/login" />
             <Route element={<Profile />} path="/profile" />
             <Route element={<NewQuestion />} path="/newquestion" />
+            <Route element={<EditQuestion />} path="/editquestion" />
 
           </Routes>
         <Footer/>
