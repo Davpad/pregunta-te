@@ -1,12 +1,17 @@
 import React,{useEffect} from "react";
 import useAppContext from "../store/AppContext";
+import { useParams } from "react-router-dom";
+
 
 export const Question = () =>{
     const {store, actions} = useAppContext();
+    const params = useParams()
 
     useEffect(() => {
         actions.getQuestions();
-        console.log(store.questions);
+        console.log(store.question);
+        console.log(params.id);
+        
         
     }, []);
 
@@ -21,7 +26,7 @@ export const Question = () =>{
                 </div>
             </div>
             <div className="row d-flex justify-content-end" style={{backgroundColor:"#76d1ebaa"}}>
-                <div class="d-grid col-lg-11 gap-2 my-2">
+                <div className="d-grid col-lg-11 gap-2 my-2">
                     <button type="button" className="btn btn-outline-primary" style={{backgroundColor:"white"}}><b>Opcion 1</b></button>
                     <button type="button" className="btn btn-outline-primary" style={{backgroundColor:"white"}}><b>Opcion 2</b></button>
                     <button type="button" className="btn btn-outline-primary" style={{backgroundColor:"white"}}><b>Opcion 3</b></button>
