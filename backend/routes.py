@@ -162,7 +162,9 @@ def get_questions_user():
     # Devolver la lista de productos serializados
     return jsonify({'results': preguntas_serializadas}), 200
 
-@api.route('/questions/<int:question_id>', methods=['GET'])
+@api.route('/question/<int:question_id>', methods=['GET'])
 def get_question(question_id):
-    question = Question.query.filter_by(question_id = question_id)
-    return jsonify(question), 200
+    question = Question.query.get(question_id)
+    if question is None:
+        return jsonify({"msg": "No existe la pregunta"}), 404
+    return jsonify(question.serialize()), 200

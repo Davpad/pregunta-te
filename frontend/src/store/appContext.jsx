@@ -7,7 +7,7 @@ export const AppProvider = ({ children }) => {
 
 	const [ejemplo, setEjemplo] = useState("hola")
 	const [questions, setQuestions] = useState([])
-	const [oneQuestion, setOneQuestion] = useState()
+	const [oneQuestion, setOneQuestion] = useState({})
 	const [userQuestions, setUserQuestions] = useState([])
 
 
@@ -225,8 +225,31 @@ export const AppProvider = ({ children }) => {
 
 	}
 
+	const getQuestion= async (id) => {
+		try {
+			let response = await fetch("http://127.0.0.1:3001/api" + "/question/" + id, {
+				method: "GET",
+				headers: {
+					"Content-Type": "application/json"
+				},
+			})
+			let data = await response.json()
+			if (response.status === 200) {
+
+				setOneQuestion(data)
+				console.log(oneQuestion);
+				
+			} else {
+				console.log(data);
+				return console.log("No funciona");
+			}
+		} catch (error) {
+			return false;
+		}
+	}
+
 	const store = { questions, oneQuestion, userQuestions}
-	const actions = { setEjemplo, signup, login, logout, addQuestion, setQuestions, getQuestions, setOneQuestion, editQuestion, getUserQuestions, setUserQuestions};
+	const actions = { setEjemplo, signup, login, logout, addQuestion, setQuestions, getQuestions, setOneQuestion, editQuestion, getUserQuestions, setUserQuestions, getQuestion};
 
 	
 

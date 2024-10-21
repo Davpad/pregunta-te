@@ -8,7 +8,7 @@ export const Question = () =>{
     const params = useParams()
 
     useEffect(() => {
-        actions.getQuestions();
+        actions.getQuestion(params.id);
         console.log(store.question);
         console.log(params.id);
         
