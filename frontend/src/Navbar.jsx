@@ -29,9 +29,9 @@ export const Navbar = () => {
                     <li className="nav-item">
                         <Link className="nav-link active" aria-current="page" to="/">Home</Link>
                     </li>
-                    <li className="nav-item">
-                        <Link className="nav-link active" to="/preguntas">Preguntas</Link>
-                    </li>
+                    {/* <li className="nav-item">
+                        <Link className="nav-link active" to="/">Preguntas</Link>
+                    </li> */}
                     <li className="nav-item">
                         <a className="nav-link disabled">Disabled</a>
                     </li>

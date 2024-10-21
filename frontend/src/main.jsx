@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from 'react-dom/client'
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 // import ScrollToTop from "./component/scrollToTop";
-import {Questions} from "./Views/questions.jsx"
+import {Question} from "./Views/question.jsx"
 import {Signup} from "./Views/signup.jsx"
 import {Login} from "./Views/login.jsx"
 import {Profile} from "./Views/profile.jsx"
@@ -20,7 +20,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <Navbar/>
           <Routes>
             <Route element={<Home />} path="/" />
-            <Route element={<Questions />} path="/preguntas" />
+            <Route element={<Question />} path="/question/:id" />
             <Route element={<Signup />} path="/signup" />
             <Route element={<Login />} path="/login" />
             <Route element={<Profile />} path="/profile" />
