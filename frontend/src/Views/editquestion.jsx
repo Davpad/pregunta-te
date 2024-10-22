@@ -44,8 +44,13 @@ export const EditQuestion = () =>{
                 <input type="text" className="form-control" id="category" placeholder="Category" value={category} onChange={(event) => { setCategory(event.target.value) }}/>
             </div>
             <div className="col-md-4">
-                <label for="logo" className="form-label">Logo</label>
-                <input type="text" className="form-control" id="logo" placeholder="Logo" value={logo} onChange={(event) => { setLogo(event.target.value) }}/>
+            <label for="logo" className="form-label">Logo</label>
+                <select class="form-select" aria-label="Default select example" onChange={(event) => { setLogo(event.target.value) }}>
+                    <option selected>Choose one logo</option>
+                    <option value="https://static.vecteezy.com/system/resources/previews/027/127/463/non_2x/javascript-logo-javascript-icon-transparent-free-png.png">JavaScript</option>
+                    <option value="https://img.icons8.com/color/512/python.png">Python</option>
+                </select>
+
             </div>
             <div className="col-2">
                 <div className="form-check mx-auto my-auto">
