@@ -175,8 +175,8 @@ export const AppProvider = ({ children }) => {
 			console.log(data);
 			if (response.status === 200){
 				console.log(data.msg);
-				setQuestions({ questions: data.results });
-				console.log(questions);
+				setQuestions(data.results);
+				console.log(store.questions);
 
 				navigate ("/profile")
 				return true;
