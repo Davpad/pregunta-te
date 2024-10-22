@@ -9,7 +9,7 @@ export const Question = () =>{
 
     useEffect(() => {
         actions.getQuestion(params.id);
-        console.log(store.question);
+        console.log(store.oneQuestion);
         console.log(params.id);
         
         
@@ -18,18 +18,18 @@ export const Question = () =>{
     return(
         <div className="row col-10 d-flex mx-auto">
             <div className="row" style={{backgroundColor:"#76d1ebaa"}}>
-                <img src="https://static.vecteezy.com/system/resources/previews/027/127/463/non_2x/javascript-logo-javascript-icon-transparent-free-png.png" alt="" className="col-1"/>
+                <img src={store.oneQuestion.logo} alt="" className="col-1"/>
 
                 <div className="col-lg-11">
-                    <div className="my-2  mx-0.5" style={{backgroundColor:"white"}}>Esta es la categoria</div>
-                    <div className="my-2  mx-0.5" style={{backgroundColor:"white"}}>Esta es la pregunta</div>
+                    <div className="my-2  mx-0.5" style={{backgroundColor:"white"}}>{store.oneQuestion.category}</div>
+                    <div className="my-2  mx-0.5" style={{backgroundColor:"white"}}>{store.oneQuestion.question}</div>
                 </div>
             </div>
             <div className="row d-flex justify-content-end" style={{backgroundColor:"#76d1ebaa"}}>
                 <div className="d-grid col-lg-11 gap-2 my-2">
-                    <button type="button" className="btn btn-outline-primary" style={{backgroundColor:"white"}}><b>Opcion 1</b></button>
-                    <button type="button" className="btn btn-outline-primary" style={{backgroundColor:"white"}}><b>Opcion 2</b></button>
-                    <button type="button" className="btn btn-outline-primary" style={{backgroundColor:"white"}}><b>Opcion 3</b></button>
+                    <button type="button" className="btn btn-outline-primary" style={{backgroundColor:"white"}}><b>{store.oneQuestion.answer1}</b></button>
+                    <button type="button" className="btn btn-outline-primary" style={{backgroundColor:"white"}}><b>{store.oneQuestion.answer2}</b></button>
+                    <button type="button" className="btn btn-outline-primary" style={{backgroundColor:"white"}}><b>{store.oneQuestion.answer3}</b></button>
                 </div>
             </div>
         </div>
