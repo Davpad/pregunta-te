@@ -1,4 +1,4 @@
-import React,{useEffect} from "react";
+import React,{useEffect, useState} from "react";
 import useAppContext from "../store/AppContext";
 import { useParams } from "react-router-dom";
 
@@ -6,13 +6,24 @@ import { useParams } from "react-router-dom";
 export const Question = () =>{
     const {store, actions} = useAppContext();
     const params = useParams()
+    const [button1, setButton1] = useState("btn-outline-primary");
+    const [button2, setButton2] = useState("btn-outline-primary");
+    const [button3, setButton3] = useState("btn-outline-primary");
 
+    function changeButton1() {
+        ((store.oneQuestion.option1 ==="true") ? setButton1("btn-success") : setButton1("btn-danger"));
+    }
+
+    function changeButton2() {
+        ((store.oneQuestion.option2 ==="true") ? setButton2("btn-success") : setButton2("btn-danger") )
+    }
+
+    function changeButton3 () {
+        ((store.oneQuestion.option3 ==="true") ? setButton3("btn-success") : setButton3("btn-danger") )
+    }
+    
     useEffect(() => {
         actions.getQuestion(params.id);
-        console.log(store.oneQuestion);
-        console.log(params.id);
-        
-        
     }, []);
 
     return(
@@ -27,9 +38,9 @@ export const Question = () =>{
             </div>
             <div className="row d-flex justify-content-end" style={{backgroundColor:"#76d1ebaa"}}>
                 <div className="d-grid col-lg-11 gap-2 my-2">
-                    <button type="button" className="btn btn-outline-primary" style={{backgroundColor:"white"}}><b>{store.oneQuestion.answer1}</b></button>
-                    <button type="button" className="btn btn-outline-primary" style={{backgroundColor:"white"}}><b>{store.oneQuestion.answer2}</b></button>
-                    <button type="button" className="btn btn-outline-primary" style={{backgroundColor:"white"}}><b>{store.oneQuestion.answer3}</b></button>
+                    <button type="button" className={"btn "+button1} onClick={changeButton1}><b>{store.oneQuestion.answer1}</b></button>
+                    <button type="button" className={"btn "+button2} onClick={changeButton2}><b>{store.oneQuestion.answer2}</b></button>
+                    <button type="button" className={"btn "+button3} onClick={changeButton3}><b>{store.oneQuestion.answer3}</b></button>
                 </div>
             </div>
         </div>

@@ -5,7 +5,6 @@ const AppContext = createContext();
 
 export const AppProvider = ({ children }) => {
 
-	const [ejemplo, setEjemplo] = useState("hola")
 	const [questions, setQuestions] = useState([])
 	const [oneQuestion, setOneQuestion] = useState({})
 	const [userQuestions, setUserQuestions] = useState([])
@@ -249,7 +248,7 @@ export const AppProvider = ({ children }) => {
 	}
 
 	const store = { questions, oneQuestion, userQuestions}
-	const actions = { setEjemplo, signup, login, logout, addQuestion, setQuestions, getQuestions, setOneQuestion, editQuestion, getUserQuestions, setUserQuestions, getQuestion};
+	const actions = { signup, login, logout, addQuestion, setQuestions, getQuestions, setOneQuestion, editQuestion, getUserQuestions, setUserQuestions, getQuestion};
 
 	
 
