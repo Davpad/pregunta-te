@@ -250,12 +250,10 @@ export const AppProvider = ({ children }) => {
 			const data = await response.json();
 			if (response.status === 200) {
 				console.log(data.msg);
-				setStore({ userQuestions: data.results });
+				setQuestions(data.results);
 				console.log("Pregunta borrada:", data.results);
 				return true;
-			// } else {
-			// 	console.log("Mensaje de error:", data.msg);
-			// 	return false;
+
 			}
 		} catch (error) {
 			console.error("Error al borrar la pregunta:", error);
