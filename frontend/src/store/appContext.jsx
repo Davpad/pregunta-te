@@ -114,9 +114,7 @@ export const AppProvider = ({ children }) => {
 				// navigate ("/profile")
 				return true;
 			}
-			// else{
-			// 	return false;
-			// }
+
 
 		}catch(error){
 			console.log(error);
@@ -139,9 +137,6 @@ export const AppProvider = ({ children }) => {
 				setQuestions(data.questions)
 				console.log(questions);
 				
-			} else {
-				console.log(data);
-				return console.log("No funciona");
 			}
 		} catch (error) {
 			return false;
@@ -180,9 +175,6 @@ export const AppProvider = ({ children }) => {
 				navigate ("/profile")
 				return true;
 			}
-			// else{
-			// 	return false;
-			// }
 
 		}catch(error){
 			console.log("Error al edita el producto",error);
@@ -210,14 +202,11 @@ export const AppProvider = ({ children }) => {
 				console.log(data.results);
 				let arr = data.results;
 				setUserQuestions(arr)
-				console.log(userQuestions);
+				console.log(store.userQuestions);
 				
 				return true;
 			} 
-			// else {
-			// 	console.log(data);
-			// 	return console.log("No funciona");
-			// }
+
 		} catch (error) {
 			return false;
 		}
@@ -247,8 +236,35 @@ export const AppProvider = ({ children }) => {
 		}
 	}
 
+	const deleteQuestion= async (id, token) => {
+		try {
+			const response = await fetch("http://127.0.0.1:3001/api" + "/question/"+id, {
+				method: 'DELETE',
+				headers: {
+					'Content-Type': 'application/json',
+					'Authorization': `Bearer ${token}`
+				},
+				
+			});
+
+			const data = await response.json();
+			if (response.status === 200) {
+				console.log(data.msg);
+				setStore({ userQuestions: data.results });
+				console.log("Pregunta borrada:", data.results);
+				return true;
+			// } else {
+			// 	console.log("Mensaje de error:", data.msg);
+			// 	return false;
+			}
+		} catch (error) {
+			console.error("Error al borrar la pregunta:", error);
+			return false;
+		}
+	}
+
 	const store = { questions, oneQuestion, userQuestions}
-	const actions = { signup, login, logout, addQuestion, setQuestions, getQuestions, setOneQuestion, editQuestion, getUserQuestions, setUserQuestions, getQuestion};
+	const actions = { signup, login, logout, addQuestion, setQuestions, getQuestions, setOneQuestion, editQuestion, getUserQuestions, setUserQuestions, getQuestion, deleteQuestion};
 
 	
 

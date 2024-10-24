@@ -11,7 +11,7 @@ export const InfoQuestion = ({id, logo, category, question, userQuestion}) => {
 
 
     return (
-        <div className="card mb-3 w-75" id={id} >
+        <div className="card mb-3 w-75" key={id} >
             <div className="row g-0">
                 <div className="col-md-2">
                     <img src={logo} className="img-fluid rounded-start" alt="..."/>
@@ -23,7 +23,10 @@ export const InfoQuestion = ({id, logo, category, question, userQuestion}) => {
                         <div className="d-flex justify-content-end">
                             
                             <Link to={"/question/"+userQuestion.id} className="btn btn-primary mx-2">Ir a la pregunta</Link>
-                            <button className="btn btn-danger mx-2">Delete</button>
+                            <button className="btn btn-danger mx-2" onClick={()=>{
+                                actions.deleteQuestion(userQuestion.id, token)
+                                window.location.reload();
+                                console.log(store.oneQuestion);}}>Delete</button>
                             <button className="btn btn-success mx-2" onClick={()=>{
                                 actions.setOneQuestion(userQuestion)
                                 navigate("/editquestion")
