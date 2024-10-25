@@ -22,14 +22,14 @@ export const InfoQuestionHome = ({id, logo, category, question, quest}) => {
                         <p className="card-text">{question}</p>
                         <div className="d-flex justify-content-end">
                             
-                            <Link to={"/question/"+quest.id} className="btn btn-primary mx-2">Ir a pregunta</Link>
+                            <Link to={"/question/"+quest.id} className="btn btn-primary mx-2"><i className="fa-solid fa-arrow-right-to-bracket"></i></Link>
 
                             <button className="btn btn-success mx-2" onClick={()=>{
                                 actions.setOneQuestion(quest)
                                 navigate("/editquestion")
                                 console.log(store.oneQuestion);
                             
-                            }}>Añadir pregunta a array</button>
+                            }}><i className="fa-solid fa-plus"></i></button>
                         </div>
                     </div>
                 </div>

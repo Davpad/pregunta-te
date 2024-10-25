@@ -22,17 +22,17 @@ export const InfoQuestion = ({id, logo, category, question, userQuestion}) => {
                         <p className="card-text">{question}</p>
                         <div className="d-flex justify-content-end">
                             
-                            <Link to={"/question/"+userQuestion.id} className="btn btn-primary mx-2">Ir a la pregunta</Link>
+                            <Link to={"/question/"+userQuestion.id} className="btn btn-primary mx-2"><i className="fa-solid fa-arrow-right-to-bracket"></i></Link>
                             <button className="btn btn-danger mx-2" onClick={()=>{
                                 actions.deleteQuestion(userQuestion.id, token)
                                 window.location.reload();
-                                console.log(store.oneQuestion);}}>Delete</button>
+                                console.log(store.oneQuestion);}}><i className="fa-solid fa-trash"></i></button>
                             <button className="btn btn-success mx-2" onClick={()=>{
                                 actions.setOneQuestion(userQuestion)
                                 navigate("/editquestion")
                                 console.log(store.oneQuestion);
                             
-                            }}>Edit</button>
+                            }}><i className="fa-solid fa-pen"></i></button>
                         </div>
                     </div>
                 </div>
