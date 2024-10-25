@@ -34,9 +34,9 @@ export const Question = () =>{
     }, []);
 
     return(
-        <div className="row col-10 d-flex mx-auto">
+        <div className="row col-10 d-flex mx-auto my-3">
             <div className="row" style={{backgroundColor:"#76d1ebaa"}}>
-                <img src={store.oneQuestion.logo} alt="" className="col-1"/>
+                <img src={store.oneQuestion.logo} alt="" className="col-1 img-fluid"/>
 
                 <div className="col-lg-11">
                     <div className="my-2  mx-0.5" style={{backgroundColor:"white"}}>{store.oneQuestion.category}</div>
@@ -45,12 +45,12 @@ export const Question = () =>{
             </div>
             <div className="row d-flex justify-content-end" style={{backgroundColor:"#76d1ebaa"}}>
                 <div className="d-grid col-lg-11 gap-2 my-2">
-                    <button type="button" className={"btn "+button1} onClick={changeButton1}><b>{store.oneQuestion.answer1}</b></button>
-                    <button type="button" className={"btn "+button2} onClick={changeButton2}><b>{store.oneQuestion.answer2}</b></button>
-                    <button type="button" className={"btn "+button3} onClick={changeButton3}><b>{store.oneQuestion.answer3}</b></button>
+                    <button type="button" className={"btn d-flex justify-content-start "+button1} onClick={changeButton1}><b><i className="fa-solid fa-1"></i>  {store.oneQuestion.answer1}</b></button>
+                    <button type="button" className={"btn d-flex justify-content-start "+button2} onClick={changeButton2}><b><i className="fa-solid fa-2"></i>  {store.oneQuestion.answer2}</b></button>
+                    <button type="button" className={"btn d-flex justify-content-start "+button3} onClick={changeButton3}><b><i className="fa-solid fa-3"></i>  {store.oneQuestion.answer3}</b></button>
                 </div>
             </div>
-            <div className={"mr-2 border border-primary "+visible}>
+            <div className={"row my-2 col-12 border border-primary "+visible}>
                 <h3>¿Por qué?</h3>
                 <p>{store.oneQuestion.reason}</p>
             </div>
