@@ -36,12 +36,12 @@ export const NewQuestion = () => {
     return (
         <form className="row g-3" onSubmit={handleSubmit}>
             <div className="col-md-12">
-                <label for="question" className="form-label">Question</label>
-                <input type="text" className="form-control" id="question" placeholder="Question" onChange={(event) => { setQuestion(event.target.value) }} />
+                <label for="heading" className="form-label">Heading</label>
+                <input type="text" className="form-control" id="heading" placeholder="Heading" onChange={(event) => { setHeading(event.target.value) }} />
             </div>
             <div className="col-md-12">
-                <label for="question" className="form-label">Heading</label>
-                <input type="text" className="form-control" id="heading" placeholder="Heading" onChange={(event) => { setHeading(event.target.value) }} />
+                <label for="question" className="form-label">Question</label>
+                <textarea type="text" className="form-control" id="question" placeholder="Question" onChange={(event) => { setQuestion(event.target.value) }} />
             </div>
             <div className="col-md-8">
                 <label for="category" className="form-label">Category</label>

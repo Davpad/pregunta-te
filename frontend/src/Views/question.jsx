@@ -36,11 +36,11 @@ export const Question = () =>{
     return(
         <div className="row col-10 d-flex mx-auto my-3">
             <div className="row" style={{backgroundColor:"#76d1ebaa"}}>
-                <img src={store.oneQuestion.logo} alt="" className="col-1 img-fluid"/>
+                <img src={store.oneQuestion.logo} alt="" className="col-1 my-auto img-fluid"/>
 
                 <div className="col-lg-11">
-                    <div className="my-2  mx-0.5" style={{backgroundColor:"white"}}>{store.oneQuestion.heading}</div>
-                    <div  className="my-2  mx-0.5" style={{backgroundColor:"white"}}><pre><code>{store.oneQuestion.question}</code></pre></div>
+                    <div className="my-2  mx-0.5 p-1"><h2>{store.oneQuestion.heading}</h2></div>
+                    <div  className="my-2  mx-0.5 p-1" style={{backgroundColor:"white"}}><pre><code>{store.oneQuestion.question}</code></pre></div>
                 </div>
             </div>
             <div className="row d-flex justify-content-end" style={{backgroundColor:"#76d1ebaa"}}>
