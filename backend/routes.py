@@ -59,6 +59,7 @@ def create_new_question():
     user_id=user.id
 
     question = request.json.get("question", None)
+    heading = request.json.get("heading", None)
     category = request.json.get("category", None)
     logo = request.json.get("logo", None)
     answer1 = request.json.get("answer1", None)
@@ -74,6 +75,7 @@ def create_new_question():
     if question_exist is None:
         new_question = Question(
             question=question,
+            heading=heading,
             category=category,
             logo=logo,
             answer1=answer1,
@@ -100,6 +102,7 @@ def update_question(question_id):
     user_id=user.id
 
     question_update = request.json.get("question")
+    heading_update = request.json.get("heading")
     category_update = request.json.get("category")
     logo_update = request.json.get("logo")
     answer1_update = request.json.get("answer1")
@@ -116,6 +119,7 @@ def update_question(question_id):
         return jsonify({"msg": "La pregunta no existe"}), 400
     else:
         question_exist.question=question_update,
+        question_exist.heading=heading_update,
         question_exist.category=category_update,
         question_exist.logo=logo_update,
         question_exist.answer1=answer1_update,

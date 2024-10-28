@@ -25,6 +25,7 @@ class Question(db.Model):
     __tablename__ = 'question'
     id = db.Column(db.Integer, primary_key=True)
     question = db.Column(db.String(500), unique=True, nullable=False)
+    heading = db.Column(db.String(240), nullable=False)
     category = db.Column(db.String(240), nullable=False)
     logo = db.Column(db.String(240), nullable=False)
     answer1 = db.Column(db.String(240), nullable=False)
@@ -43,6 +44,7 @@ class Question(db.Model):
         return {
             "id": self.id,
             "question": self.question,
+            "heading": self.heading,
             "category": self.category,
             "logo": self.logo,
             "answer1": self.answer1,

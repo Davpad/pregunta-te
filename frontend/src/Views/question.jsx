@@ -39,7 +39,7 @@ export const Question = () =>{
                 <img src={store.oneQuestion.logo} alt="" className="col-1 img-fluid"/>
 
                 <div className="col-lg-11">
-                    <div className="my-2  mx-0.5" style={{backgroundColor:"white"}}>{store.oneQuestion.category}</div>
+                    <div className="my-2  mx-0.5" style={{backgroundColor:"white"}}>{store.oneQuestion.heading}</div>
                     <div className="my-2  mx-0.5" style={{backgroundColor:"white"}}>{store.oneQuestion.question}</div>
                 </div>
             </div>
