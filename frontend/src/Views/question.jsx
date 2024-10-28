@@ -40,7 +40,7 @@ export const Question = () =>{
 
                 <div className="col-lg-11">
                     <div className="my-2  mx-0.5" style={{backgroundColor:"white"}}>{store.oneQuestion.heading}</div>
-                    <div className="my-2  mx-0.5" style={{backgroundColor:"white"}}>{store.oneQuestion.question}</div>
+                    <div  className="my-2  mx-0.5" style={{backgroundColor:"white"}}><pre><code>{store.oneQuestion.question}</code></pre></div>
                 </div>
             </div>
             <div className="row d-flex justify-content-end" style={{backgroundColor:"#76d1ebaa"}}>

@@ -7,6 +7,7 @@ export const NewQuestion = () => {
     const { store, actions } = useAppContext();
 
     const [question, setQuestion] = useState();
+    const [heading, setHeading] = useState();
     const [category, setCategory] = useState();
     const [option1, setOption1] = useState("false");
     const [answer1, setAnswer1] = useState();
@@ -29,7 +30,7 @@ export const NewQuestion = () => {
         console.log(option3);
 
         e.preventDefault();
-        await actions.addQuestion(question, category, option1, answer1, option2, answer2, option3, answer3, reason, logo, navigate, token)
+        await actions.addQuestion(question, category, option1, answer1, option2, answer2, option3, answer3, reason, logo, heading, navigate, token)
     }
 
     return (
@@ -37,6 +38,10 @@ export const NewQuestion = () => {
             <div className="col-md-12">
                 <label for="question" className="form-label">Question</label>
                 <input type="text" className="form-control" id="question" placeholder="Question" onChange={(event) => { setQuestion(event.target.value) }} />
+            </div>
+            <div className="col-md-12">
+                <label for="question" className="form-label">Heading</label>
+                <input type="text" className="form-control" id="heading" placeholder="Heading" onChange={(event) => { setHeading(event.target.value) }} />
             </div>
             <div className="col-md-8">
                 <label for="category" className="form-label">Category</label>

@@ -82,7 +82,7 @@ export const AppProvider = ({ children }) => {
 
 	}
 
-	const addQuestion = async (question, category, option1, answer1, option2, answer2, option3, answer3, reason, logo, navigate, token) => {
+	const addQuestion = async (question, category, option1, answer1, option2, answer2, option3, answer3, reason, logo, heading, navigate, token) => {
 		try {
 			
 			let response = await fetch("http://127.0.0.1:3001/api" + "/question", {
@@ -93,6 +93,7 @@ export const AppProvider = ({ children }) => {
 				},
 				body: JSON.stringify({
 					question: question,
+					heading: heading,
 					category: category,
 					option1: option1,
 					answer1: answer1,
@@ -143,7 +144,7 @@ export const AppProvider = ({ children }) => {
 		}
 	}
 
-	const editQuestion = async (question, category, option1, answer1, option2, answer2, option3, answer3, reason, logo, navigate, token, id) => {
+	const editQuestion = async (question, category, option1, answer1, option2, answer2, option3, answer3, reason, logo, heading, navigate, token, id) => {
 		try {
 			
 			let response = await fetch("http://127.0.0.1:3001/api" + "/question/" + id, {
@@ -154,6 +155,7 @@ export const AppProvider = ({ children }) => {
 				},
 				body: JSON.stringify({
 					question: question,
+					heading: heading,
 					category: category,
 					option1: option1,
 					answer1: answer1,

@@ -6,6 +6,7 @@ export const EditQuestion = () =>{
     const {store, actions} = useAppContext();
 
     const [question,setQuestion] = useState(store.oneQuestion.question);
+    const [heading, setHeading] = useState(store.oneQuestion.heading);
     const [category,setCategory] = useState(store.oneQuestion.category);
     const [option1,setOption1] = useState("false");
     const [answer1,setAnswer1] = useState(store.oneQuestion.answer1);
@@ -30,7 +31,7 @@ export const EditQuestion = () =>{
         console.log(option3);
 
         e.preventDefault();
-        await actions.editQuestion(question, category, option1, answer1, option2, answer2, option3, answer3, reason, logo, navigate, token, id)
+        await actions.editQuestion(question, category, option1, answer1, option2, answer2, option3, answer3, reason, logo, heading, navigate, token, id)
     }
 
     return (
@@ -38,6 +39,10 @@ export const EditQuestion = () =>{
             <div className="col-md-12">
                 <label for="question" className="form-label">Question</label>
                 <input type="text" className="form-control" id="question" placeholder="Question" value={question} onChange={(event) => { setQuestion(event.target.value) }}/>
+            </div>
+            <div className="col-md-12">
+                <label for="question" className="form-label">Heading</label>
+                <input type="text" className="form-control" id="heading" placeholder="Heading" value={heading} onChange={(event) => { setHeading(event.target.value) }} />
             </div>
             <div className="col-md-8">
                 <label for="category" className="form-label">Category</label>
