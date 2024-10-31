@@ -60,9 +60,7 @@ export const AppProvider = ({ children }) => {
 			let data = await response.json()
 			console.log(email);
 			if (response.status === 200){
-				console.log(data.access_token);
 				localStorage.setItem("token", data.access_token);
-				console.log(localStorage.token);
 
 				navigate ("/profile")
 				return true;
@@ -112,13 +110,13 @@ export const AppProvider = ({ children }) => {
 				setQuestions({questions: data.results})
 				console.log(questions);
 
-				// navigate ("/profile")
+				navigate ("/profile")
 				return true;
 			}
 
 
 		}catch(error){
-			console.log(error);
+			console.log("Error al añadir la pregunta",error);
 			return false;	
 		}
 
@@ -179,7 +177,7 @@ export const AppProvider = ({ children }) => {
 			}
 
 		}catch(error){
-			console.log("Error al edita el producto",error);
+			console.log("Error al editar la pregunta",error);
 			return false;	
 		}
 
