@@ -7,7 +7,6 @@ import { InfoQuestion } from "../components/infoQuestion";
 export const Profile = () =>{
     const {store, actions} = useAppContext();
     const [userQuestions,setUserQuestions] = useState([]);
-    // console.log(questions);
 
 
     useEffect(() => {
@@ -17,12 +16,12 @@ export const Profile = () =>{
         console.log(store.userQuestions);
         
         // setQuestions(store.questions)
-        // console.log(store.questions);
         
     }, []);
 
     return(
         <div>
+            <h2>Mis preguntas</h2>
             <div className="justify-content-center container">
                 {store.userQuestions.map((userQuestion)=>{
                     return(
