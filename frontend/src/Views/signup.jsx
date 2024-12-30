@@ -43,10 +43,6 @@ export const Signup = () =>{
         <div className="col-12">
             <button type="submit" className="btn btn-primary">Sign up</button>
         </div>
-        <div>
-            <p>{store.ejemplo}</p>
-            <button onClick={() => actions.setEjemplo("chau!")}>Click!</button> 
-        </div>
     </form>    
     );
 };
