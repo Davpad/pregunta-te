@@ -134,7 +134,6 @@ export const AppProvider = ({ children }) => {
 			if (response.status === 200) {
 
 				setQuestions(data.questions)
-				console.log(questions);
 				
 			}
 		} catch (error) {
@@ -225,7 +224,6 @@ export const AppProvider = ({ children }) => {
 			if (response.status === 200) {
 
 				setOneQuestion(data)
-				console.log(oneQuestion);
 				
 			} else {
 				console.log(data);
