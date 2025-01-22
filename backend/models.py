@@ -34,7 +34,7 @@ class Question(db.Model):
     option2 = db.Column(db.String(10), nullable=True)
     answer3 = db.Column(db.String(240), nullable=False)
     option3 = db.Column(db.String(10), nullable=True)
-    reason = db.Column(db.String(240), unique=True, nullable=False)
+    reason = db.Column(db.String(500), unique=True, nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
 
