@@ -1,5 +1,5 @@
 import React, {useEffect, useState}from "react";
-import useAppContext from "../store/AppContext";
+import useAppContext from "../store/appContext.jsx";
 import { useNavigate } from "react-router-dom";
 
 export const EditQuestion = () =>{
@@ -38,16 +38,16 @@ export const EditQuestion = () =>{
         <form className="row g-3" onSubmit={handleSubmit}>
             <div className="col-md-12">
                 <label for="heading" className="form-label">Heading</label>
-                <input type="text" className="form-control" id="heading" placeholder="Heading" value={heading} onChange={(event) => { setHeading(event.target.value) }} />
+                <input maxLength="240" type="text" className="form-control" id="heading" placeholder="Heading" value={heading} onChange={(event) => { setHeading(event.target.value) }} />
             </div>
             <div className="col-md-12">
                 <label for="question" className="form-label">Question</label>
-                <textarea type="text" className="form-control" id="question" placeholder="Question" value={question} onChange={(event) => { setQuestion(event.target.value) }}/>
+                <textarea maxLength="500" type="text" className="form-control" id="question" placeholder="Question" value={question} onChange={(event) => { setQuestion(event.target.value) }}/>
             </div>
 
             <div className="col-md-8">
                 <label for="category" className="form-label">Category</label>
-                <input type="text" className="form-control" id="category" placeholder="Category" value={category} onChange={(event) => { setCategory(event.target.value) }}/>
+                <input maxLength="240" type="text" className="form-control" id="category" placeholder="Category" value={category} onChange={(event) => { setCategory(event.target.value) }}/>
             </div>
             <div className="col-md-4">
             <label for="logo" className="form-label">Logo</label>
@@ -65,7 +65,7 @@ export const EditQuestion = () =>{
             </div>
             <div className="col-10">
                 <label for="answer1" className="form-label">Answer1</label>
-                <input type="text" className="form-control" id="answer1" placeholder="Answer1" value={answer1} onChange={(event) => { setAnswer1(event.target.value) }}/>
+                <input maxLength="240" type="text" className="form-control" id="answer1" placeholder="Answer1" value={answer1} onChange={(event) => { setAnswer1(event.target.value) }}/>
             </div>
             <div className="col-2">
                 <div className="form-check">
@@ -74,7 +74,7 @@ export const EditQuestion = () =>{
             </div>
             <div className="col-10">
                 <label for="answer2" className="form-label">Answer2</label>
-                <input type="text" className="form-control" id="answer2" placeholder="Answer2" value={answer2} onChange={(event) => { setAnswer2(event.target.value) }}/>
+                <input maxLength="240" type="text" className="form-control" id="answer2" placeholder="Answer2" value={answer2} onChange={(event) => { setAnswer2(event.target.value) }}/>
             </div>
             <div className="col-2">
                 <div className="form-check">
@@ -83,11 +83,11 @@ export const EditQuestion = () =>{
             </div>
             <div className="col-10">
                 <label for="answer3" className="form-label">Answer3</label>
-                <input type="text" className="form-control" id="answer3" placeholder="Answer3" value={answer3} onChange={(event) => { setAnswer3(event.target.value) }}/>
+                <input maxLength="240" type="text" className="form-control" id="answer3" placeholder="Answer3" value={answer3} onChange={(event) => { setAnswer3(event.target.value) }}/>
             </div>
             <div className="col-12">
                 <label for="reason" className="form-label">Reason</label>
-                <input type="text" className="form-control" id="reason" placeholder="Reason" value={reason} onChange={(event) => { setReason(event.target.value) }}/>
+                <textarea maxLength="500" type="text" className="form-control" id="reason" placeholder="Reason" value={reason} onChange={(event) => { setReason(event.target.value) }}/>
             </div>
             <div className="col-12">
                 <button type="submit" className="btn btn-primary">Editar pregunta</button>
