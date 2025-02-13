@@ -58,7 +58,6 @@ export const AppProvider = ({ children }) => {
 				})
 			})
 			let data = await response.json()
-			console.log(email);
 			if (response.status === 200){
 				localStorage.setItem("token", data.access_token);
 
@@ -198,10 +197,8 @@ export const AppProvider = ({ children }) => {
 			})
 			let data = await response.json()
 			if (response.status === 200){
-				console.log(data.results);
 				let arr = data.results;
 				setUserQuestions(arr)
-				console.log(store.userQuestions);
 				
 				return true;
 			} 

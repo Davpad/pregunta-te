@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import useAppContext from "../store/AppContext";
+import useAppContext from "../store/appContext";
 import { InfoQuestionHome } from "../components/infoQuestionHome";
 
 export const Home = () =>{

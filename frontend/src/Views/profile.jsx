@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import { Link } from "react-router-dom";
-import useAppContext from "../store/AppContext";
+import useAppContext from "../store/appContext";
 import { InfoQuestion } from "../components/infoQuestion";
 
 
@@ -13,9 +13,7 @@ export const Profile = () =>{
         const token = localStorage.getItem("token");
 
         actions.getUserQuestions(token);
-        console.log(store.userQuestions);
         
-        // setQuestions(store.questions)
         
     }, []);
 

@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import useAppContext from "../store/AppContext";
+import useAppContext from "../store/appContext";
 import { useNavigate } from "react-router-dom";
 
 export const Login = () =>{

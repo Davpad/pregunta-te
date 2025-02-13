@@ -1,5 +1,5 @@
 import React, {useEffect, useState}from "react";
-import useAppContext from "../store/AppContext";
+import useAppContext from "../store/appContext.jsx";
 import { Link, useNavigate } from "react-router-dom";
 
 
