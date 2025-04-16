@@ -14,7 +14,7 @@ export const InfoQuestion = ({id, logo, category, question, userQuestion}) => {
         <div className="card mb-3 w-75" key={id} >
             <div className="row g-0">
                 <div className="col-md-2">
-                    <img src={logo} className="img-fluid rounded-start" alt="..."/>
+                    <img src={logo === "JavaScript"?"https://static.vecteezy.com/system/resources/previews/027/127/463/non_2x/javascript-logo-javascript-icon-transparent-free-png.png":"https://img.icons8.com/color/512/python.png"} className="img-fluid rounded-start" alt="..."/>
                 </div>
                 <div className="col-md-10">
                     <div className="card-header">{category}</div>

@@ -36,7 +36,7 @@ export const Question = () =>{
     return(
         <div className="row col-10 d-flex mx-auto my-3">
             <div className="row" style={{backgroundColor:"#76d1ebaa"}}>
-                <img src={store.oneQuestion.logo} alt="" className="col-1 mb-auto mt-0.5 img-fluid"/>
+                <img src={store.oneQuestion.logo === "JavaScript"?"https://static.vecteezy.com/system/resources/previews/027/127/463/non_2x/javascript-logo-javascript-icon-transparent-free-png.png":"https://img.icons8.com/color/512/python.png"} alt="" className="col-1 mb-auto mt-0.5 img-fluid"/>
 
                 <div className="col-lg-11">
                     <div className="my-2  mx-0.5 p-1"><h2>{store.oneQuestion.heading}</h2></div>
