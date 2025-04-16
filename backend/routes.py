@@ -172,3 +172,20 @@ def get_question(question_id):
     if question is None:
         return jsonify({"msg": "No existe la pregunta"}), 404
     return jsonify(question.serialize()), 200
+
+@api.route('/categories-questions', methods=['GET'])
+def get_all_categorias_preguntas():
+
+    query_results = Question.query.all()
+    categories = set()
+    for quest in query_results:
+        categories.add(quest.category)
+
+    categories_list = list(categories)
+   
+    if categories_list == []:
+        return jsonify({"msg" : "No hay categorias guardadas"}), 404
+    response_body = {
+        "results": categories_list
+    }
+    return jsonify(response_body), 200
