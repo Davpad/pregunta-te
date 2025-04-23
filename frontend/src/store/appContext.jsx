@@ -8,6 +8,7 @@ export const AppProvider = ({ children }) => {
 	const [questions, setQuestions] = useState([])
 	const [oneQuestion, setOneQuestion] = useState({})
 	const [userQuestions, setUserQuestions] = useState([])
+	const [categories, setCategories] = useState([])
 
 
 
@@ -256,8 +257,28 @@ export const AppProvider = ({ children }) => {
 		}
 	}
 
-	const store = { questions, oneQuestion, userQuestions}
-	const actions = { signup, login, logout, addQuestion, setQuestions, getQuestions, setOneQuestion, editQuestion, getUserQuestions, setUserQuestions, getQuestion, deleteQuestion};
+	const getCategories= async () => {
+		try {
+			let response = await fetch("http://127.0.0.1:3001/api" + "/categories-questions", {
+				method: "GET",
+				headers: {
+					"Content-Type": "application/json"
+				},
+			})
+			let data = await response.json()
+			if (response.status === 200) {
+
+				setCategories(data.results)
+				
+			}
+		} catch (error) {
+			return false;
+		}
+	}
+
+
+	const store = { questions, oneQuestion, userQuestions, categories}
+	const actions = { signup, login, logout, addQuestion, setQuestions, getQuestions, setOneQuestion, editQuestion, getUserQuestions, setUserQuestions, getQuestion, deleteQuestion, setCategories, getCategories};
 
 	
 
